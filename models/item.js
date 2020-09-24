@@ -12,6 +12,11 @@ const itemSchema = new mongoose.Schema({
     price: {
         type: Number,
         required: true
+    },
+    restaurant: {
+        type: mongoose.Schema.Types.ObjectId,
+        ref: 'Restaurant',
+        required:true
     }
 })
 
