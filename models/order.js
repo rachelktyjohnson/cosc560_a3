@@ -30,14 +30,14 @@ module.exports = mongoose.model('Order', orderSchema);
  *        type: object
  *        required:
  *          - user
- *          - datetime
+ *          - orderDate
  *          - cart
  *          - status
  *        properties:
  *          user:
  *            type: User
  *            description: userID of the user associated with the order
- *          datetime:
+ *          orderDate:
  *            type: Date
  *            description: datetime of when the order was placed
  *          cart:
