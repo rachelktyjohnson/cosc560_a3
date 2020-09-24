@@ -23,4 +23,4 @@ server.get("/", (req, res) => {
     });
 })
 
-server.listen(process.env.PORT, () => console.log("Server started! Listening on Port 9000"));
+server.listen(process.env.PORT, () => console.log("Server started! Listening on Port "+process.env.PORT));
