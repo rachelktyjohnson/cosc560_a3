@@ -21,9 +21,11 @@ exports.notifications_new = async (req,res)=>{
 }
 
 exports.notifications_read = async (req,res)=>{
-    console.log("Patch request");
     try{
-        let result = await Notification.findOneAndUpdate({_id:req.params.notificationID}, {read:true},{new:true})
+        let result = await Notification.findOneAndUpdate(
+            {_id:req.params.notificationID},
+            {read:true},
+            {new:true})
         res.status(200).json({
             message: "Notification read",
             data: result

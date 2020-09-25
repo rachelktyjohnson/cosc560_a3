@@ -6,7 +6,7 @@ const orderSchema = new mongoose.Schema({
         ref: 'User',
         required:true
     },
-    orderDate: {
+    datetime: {
         type: Date,
         default: Date.now
     },
@@ -17,7 +17,7 @@ const orderSchema = new mongoose.Schema({
     }],
     status: {
         type: String,
-        default: "Processing"
+        default: "processing"
     }
 })
 
@@ -30,14 +30,14 @@ module.exports = mongoose.model('Order', orderSchema);
  *        type: object
  *        required:
  *          - user
- *          - orderDate
+ *          - datetime
  *          - cart
  *          - status
  *        properties:
  *          user:
  *            type: User
  *            description: userID of the user associated with the order
- *          orderDate:
+ *          datetime:
  *            type: Date
  *            description: datetime of when the order was placed
  *          cart:
