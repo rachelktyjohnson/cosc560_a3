@@ -1,22 +1,24 @@
 const Item = require('../models/item');
-exports.items_get_single = (req,res)=>{
-    res.status(200).json({
-        message: "GET item by item ID: "+req.params.itemID,
-        data: {
-            name: "Item name",
-            description: "Item description",
-            price: 12.95,
-            restaurantID: 'RestaurantID'
-        }
-    })
+exports.items_get_single = async (req,res)=>{
+    try {
+        const item = await Item.findById(req.params.itemID);
+        res.status(200);
+        res.json({
+            message: "GET single item by ID: "+req.params.itemID,
+            data: item
+        });
+    } catch (err) {
+        res.status(500).json({
+            error: err.message
+        })
+    }
 }
 
 exports.items_new = async (req,res)=>{
     const item = new Item({
         name: req.body.name,
         description: req.body.description,
-        price: req.body.price,
-        restaurant: req.body.restaurantID
+        price: req.body.price
     })
     try {
         const newItem = await item.save();

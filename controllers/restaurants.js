@@ -5,7 +5,7 @@ exports.restaurants_get_all = async (req,res)=>{
         const restaurants = await Restaurant.find().select('name description ratings stars');
         res.status(200);
         res.json({
-            message: "GET all restaurants",
+            message: "GET all restaurants without menu",
             count: restaurants.length,
             data: restaurants
         });
