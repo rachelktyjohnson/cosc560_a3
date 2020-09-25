@@ -1,5 +1,7 @@
 const express = require('express');
 const router = express.Router();
+const checkAuthUser = require('../middleware/check-auth-user');
+const checkAuthAdmin = require('../middleware/check-auth-admin');
 
 //controller file
 const RestaurantsController = require('../controllers/restaurants');
@@ -19,7 +21,7 @@ const RestaurantsController = require('../controllers/restaurants');
  *              schema:
  *                $ref: '#/components/schemas/Restaurant'
  */
-router.get('/',RestaurantsController.restaurants_get_all);
+router.get('/', checkAuthUser, checkAuthAdmin, RestaurantsController.restaurants_get_all);
 
 /**
  * @swagger
@@ -38,6 +40,7 @@ router.get('/',RestaurantsController.restaurants_get_all);
  */
 router.get('/:restaurantID', RestaurantsController.restaurants_get_single);
 
+//for testing only, not in final
 router.post('/',RestaurantsController.restaurant_new);
 
 module.exports = router;

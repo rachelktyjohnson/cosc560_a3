@@ -31,6 +31,7 @@ exports.restaurants_get_single = async (req,res)=>{
     }
 }
 
+//for dev only. Not in final
 exports.restaurant_new = async (req,res)=>{
     const restaurant = new Restaurant({
         name: req.body.name,
