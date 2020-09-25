@@ -46,9 +46,4 @@ module.exports = mongoose.model('Order', orderSchema);
  *          status:
  *            type: String
  *            description: Status of the order (Processing, Received, Delivered, Cancelled)
- *        example:
- *           user: UserID
- *           datetime: 2002-12-09T00:00:00.000Z
- *           menu: [ItemID, ItemID, ItemID]
- *           status: Processing
  */

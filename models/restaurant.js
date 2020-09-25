@@ -53,10 +53,4 @@ module.exports = mongoose.model('Restaurant', restaurantSchema);
  *          menu:
  *            type: Array of Items
  *            description: The menu of the restaurant using Items
- *        example:
- *           name: Big B's
- *           description: chicken, burger, chips, American
- *           ratings: 203
- *           stars: 4.9
- *           menu: [ItemID, ItemID, ItemID]
  */

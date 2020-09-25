@@ -36,8 +36,4 @@ module.exports = mongoose.model('Item', itemSchema);
  *          price:
  *            type: Number
  *            description: price of the food item in Number
- *        example:
- *           name: Classic Cheeseburger
- *           description: Mince, cheese, burger sauce
- *           price: 14.50
  */

@@ -41,8 +41,4 @@ module.exports = mongoose.model('Notification', notificationSchema);
  *          content:
  *            type: String
  *            description: what the notification actually says
- *        example:
- *           user: [userID]
- *           read: false
- *           content: Your order is pending!
  */

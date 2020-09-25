@@ -19,8 +19,8 @@ const UserController = require('../controllers/users');
  *            schema:
  *              $ref: '#/components/schemas/User'
  *      responses:
- *        "200":
- *          description: A user schema
+ *        "201":
+ *          description: An item schema
  *          content:
  *            application/json:
  *              schema:
@@ -33,22 +33,54 @@ router.post('/signup', UserController.user_signup);
  * path:
  *  /users/login:
  *    post:
- *      summary: Logs in a user
+ *      summary: Sends user login details and returns token
  *      tags: [Users]
  *      requestBody:
  *        required: true
  *        content:
  *          application/json:
  *            schema:
- *              $ref: '#/components/schemas/User'
+ *              type: object
+ *              properties:
+ *                  email:
+ *                      type: string
+ *                      description: email/username for login
+ *                  password:
+ *                      type: string
+ *                      description: password for login
  *      responses:
  *        "200":
- *          description: A user schema and token
+ *          description: token for further auth
+ *          content:
+ *            application/json:
+ *              schema:
+ *                type: object
+ *                properties:
+ *                  token:
+ *                      type: string
+ *                      description: token for later auth
  */
 router.post('/login',UserController.user_login);
 
-
+/**
+ * @swagger
+ * path:
+ *  /users/:
+ *    get:
+ *      summary: Gets all users
+ *      tags: [Users]
+ *      responses:
+ *        "200":
+ *          description: An array of users
+ *          content:
+ *            application/json:
+ *              schema:
+ *                $ref: '#/components/schemas/User'
+ */
 router.get('/', UserController.users_get_all);
+
+
+
 module.exports = router;
 /**
  * @swagger

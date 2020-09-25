@@ -39,24 +39,43 @@ module.exports = mongoose.model('User', userSchema);
  *          - address
  *          - admin
  *        properties:
- *          email:
- *            type: string
- *          password:
- *            type: string
- *          firstName:
- *            type: String
- *          lastName:
- *            type: String
- *          phoneNumber:
- *            type: String
- *          address:
- *            type: String
- *            description: nested into (Add1, Add2, Suburb, State, Postcode)
- *          admin:
- *            type: Boolean
- *            description: Admin[true] or User[false]
- *        example:
- *           email: tester@test.com
- *           password: TestPassword
- *           admin: false
+ *                  id:
+ *                      type: ObjectId
+ *                      description: Mongoose objectID
+ *                  email:
+ *                      type: string
+ *                      description: email/username of user
+ *                  password:
+ *                      type: string
+ *                      description: Hashed password of user
+ *                  firstName:
+ *                      type: string
+ *                      description: First name of user
+ *                  lastName:
+ *                      type: string
+ *                      description: Last name of user
+ *                  phoneNumber:
+ *                      type: string
+ *                      description: Phone number of user
+ *                  admin:
+ *                      type: boolean
+ *                      description: Admin[true] or User[false]
+ *                  address:
+ *                      type: object
+ *                      properties:
+ *                          add1:
+ *                              type: string
+ *                              description: Address Line 1
+ *                          add2:
+ *                              type: string
+ *                              description: Address Line 2
+ *                          suburb:
+ *                              type: string
+ *                              description: Address suburb
+ *                          state:
+ *                              type: string
+ *                              description: Address state
+ *                          postcode:
+ *                              type: number
+ *                              description: Address postcode
  */
