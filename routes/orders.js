@@ -4,7 +4,7 @@ const checkAuthUser = require('../middleware/check-auth-user');
 const checkAuthAdmin = require('../middleware/check-auth-admin');
 
 //controller file
-const OrdersController = require('../controllers/orders');
+//const OrdersController = require('../controllers/orders');
 
 //GET: get an order (admin, user if the order belongs to you)
 

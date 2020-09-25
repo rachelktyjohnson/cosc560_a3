@@ -4,7 +4,8 @@ const Notification = require('../models/notification');
 exports.notifications_new = async (req,res)=>{
     const notification = new Notification({
         userID: req.body.userID,
-        content: req.body.content
+        content: req.body.content,
+
     })
     try {
         const newNotification = await notification.save();

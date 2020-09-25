@@ -14,6 +14,10 @@ const notificationSchema = new mongoose.Schema({
         type: String,
         required: true
     },
+    datetime: {
+        type:Date,
+        default: Date.now
+    }
 })
 
 module.exports = mongoose.model('Notification', notificationSchema);

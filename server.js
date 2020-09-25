@@ -78,10 +78,11 @@ const restaurantRoutes = require('./routes/restaurants');
 const itemRoutes = require('./routes/items');
 const userRoutes = require('./routes/users');
 const notificationRoutes = require('./routes/notifications');
+const orderRoutes = require('./routes/orders');
 app.use('/restaurants', restaurantRoutes);
 app.use('/items', itemRoutes);
 app.use('/users', userRoutes);
 app.use('/notifications', notificationRoutes);
-
+app.use('/order', orderRoutes);
 //////////////////// SERVER LISTENER
 app.listen(process.env.PORT, () => console.log("Server started! Listening on Port "+process.env.PORT));
