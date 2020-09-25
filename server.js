@@ -47,7 +47,7 @@ const options = {
             }
         ]
     },
-    apis: ['models/*.js']
+    apis: ['models/*.js', 'routes/*.js']
 };
 const specs = swaggerJsdoc(options);
 app.use("/docs", swaggerUi.serve);

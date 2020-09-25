@@ -4,7 +4,27 @@ const router = express.Router();
 //controller file
 const ItemsController = require('../controllers/items');
 
-//get item details by ID
+/**
+ * @swagger
+ * path:
+ *  /items/:ItemID/:
+ *    get:
+ *      summary: Gets a single item
+ *      tags: [Items]
+ *      responses:
+ *        "200":
+ *          description: An Item schema
+ *          content:
+ *            application/json:
+ *              schema:
+ *                $ref: '#/components/schemas/Item'
+ */
 router.get('/:itemID',ItemsController.items_get_single);
 
 module.exports = router;
+/**
+ * @swagger
+ * tags:
+ *   name: Items
+ *   description: Item management
+ */
