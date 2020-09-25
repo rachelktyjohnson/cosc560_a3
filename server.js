@@ -16,7 +16,7 @@ mongoose.connect(process.env.MONGO_URL,
         useNewUrlParser: true,
         useUnifiedTopology: true
     });
-
+mongoose.set('useFindAndModify', false);
 const db = mongoose.connection;
 db.on('error', (error) => console.error(error));
 db.once('open', () => console.log('Connected to database!'));
@@ -77,9 +77,11 @@ app.use((req, res, next)=>{
 const restaurantRoutes = require('./routes/restaurants');
 const itemRoutes = require('./routes/items');
 const userRoutes = require('./routes/users');
+const notificationRoutes = require('./routes/notifications');
 app.use('/restaurants', restaurantRoutes);
 app.use('/items', itemRoutes);
 app.use('/users', userRoutes);
+app.use('/notifications', notificationRoutes);
 
 //////////////////// SERVER LISTENER
 app.listen(process.env.PORT, () => console.log("Server started! Listening on Port "+process.env.PORT));

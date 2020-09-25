@@ -90,3 +90,20 @@ exports.user_signup = (req, res, next) => {
         })
 
 }
+
+//TESTING ONLY. NOT DEPLOYED LIVE
+exports.users_get_all = async (req,res)=>{
+    try {
+        const users = await User.find();
+        res.status(200);
+        res.json({
+            message: "GET all users",
+            count: users.length,
+            data: users
+        });
+    } catch (err) {
+        res.status(500).json({
+            error: err.message
+        })
+    }
+}

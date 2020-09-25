@@ -20,7 +20,12 @@ const userSchema = new mongoose.Schema({
     admin: {
         type: Boolean,
         default: false
-    }
+    },
+    notifications: [{
+        type: mongoose.Schema.Types.ObjectId,
+        ref: 'Notification',
+        required:false
+    }]
 })
 
 module.exports = mongoose.model('User', userSchema);

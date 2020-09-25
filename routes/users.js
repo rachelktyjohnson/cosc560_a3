@@ -47,6 +47,8 @@ router.post('/signup', UserController.user_signup);
  */
 router.post('/login',UserController.user_login);
 
+
+router.get('/', UserController.users_get_all);
 module.exports = router;
 /**
  * @swagger
