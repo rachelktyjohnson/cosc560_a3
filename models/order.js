@@ -35,15 +35,11 @@ module.exports = mongoose.model('Order', orderSchema);
  *          - status
  *        properties:
  *          user:
- *            type: User
+ *            type: ObjectID
  *            description: userID of the user associated with the order
- *          datetime:
- *            type: Date
- *            description: datetime of when the order was placed
  *          cart:
- *            type: Array of Items
+ *            type: array
  *            description: all items that were in the order
- *          status:
- *            type: String
- *            description: Status of the order (Processing, Received, Delivered, Cancelled)
+ *            items:
+ *              type: ObjectID
  */
