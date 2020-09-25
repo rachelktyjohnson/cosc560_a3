@@ -75,7 +75,9 @@ app.use((req, res, next)=>{
 
 //////////////////// ROUTERS
 const restaurantRoutes = require('./routes/restaurants');
+const itemRoutes = require('./routes/items');
 app.use('/restaurants', restaurantRoutes);
+app.use('/items', itemRoutes);
 
 //////////////////// SERVER LISTENER
 app.listen(process.env.PORT, () => console.log("Server started! Listening on Port "+process.env.PORT));
