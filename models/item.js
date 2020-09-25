@@ -12,11 +12,6 @@ const itemSchema = new mongoose.Schema({
     price: {
         type: Number,
         required: true
-    },
-    restaurant: {
-        type: mongoose.Schema.Types.ObjectId,
-        ref: 'Restaurant',
-        required:true
     }
 })
 
@@ -31,7 +26,6 @@ module.exports = mongoose.model('Item', itemSchema);
  *          - name
  *          - description
  *          - price
- *          - restaurant
  *        properties:
  *          name:
  *            type: string
@@ -42,12 +36,8 @@ module.exports = mongoose.model('Item', itemSchema);
  *          price:
  *            type: Number
  *            description: price of the food item in Number
- *          restaurant:
- *            type: String
- *            description: the restaurant this item belongs to
  *        example:
  *           name: Classic Cheeseburger
  *           description: Mince, cheese, burger sauce
  *           price: 14.50
- *           restaurant: restaurantID
  */

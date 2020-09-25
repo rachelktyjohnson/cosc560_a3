@@ -38,6 +38,8 @@ router.get('/',RestaurantsController.restaurants_get_all);
  */
 router.get('/:restaurantID', RestaurantsController.restaurants_get_single);
 
+router.post('/',RestaurantsController.restaurant_new);
+
 module.exports = router;
 
 /**

@@ -20,6 +20,7 @@ const ItemsController = require('../controllers/items');
  *                $ref: '#/components/schemas/Item'
  */
 router.get('/:itemID',ItemsController.items_get_single);
+router.post('/',ItemsController.items_new);
 
 module.exports = router;
 /**
