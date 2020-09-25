@@ -1,7 +1,5 @@
 const express = require('express');
 const router = express.Router();
-const checkAuthUser = require('../middleware/check-auth-user');
-const checkAuthAdmin = require('../middleware/check-auth-admin');
 
 //controller file
 const RestaurantsController = require('../controllers/restaurants');
@@ -21,7 +19,7 @@ const RestaurantsController = require('../controllers/restaurants');
  *              schema:
  *                $ref: '#/components/schemas/Restaurant'
  */
-router.get('/', checkAuthUser, checkAuthAdmin, RestaurantsController.restaurants_get_all);
+router.get('/', RestaurantsController.restaurants_get_all);
 
 /**
  * @swagger
