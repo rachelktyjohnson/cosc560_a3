@@ -74,11 +74,8 @@ app.use((req, res, next)=>{
 
 
 //////////////////// ROUTERS
-app.get("/", (req, res) => {
-    res.json({
-        message: "Hello World"
-    });
-})
+const restaurantRoutes = require('./routes/restaurants');
+app.use('/restaurants', restaurantRoutes);
 
 //////////////////// SERVER LISTENER
 app.listen(process.env.PORT, () => console.log("Server started! Listening on Port "+process.env.PORT));
