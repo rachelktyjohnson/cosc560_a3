@@ -25,6 +25,25 @@ const OrdersController = require('../controllers/orders');
  */
 router.get('/', checkAuthUser, checkAuthAdmin, OrdersController.orders_get_all);
 
+
+/**
+ * @swagger
+ * path:
+ *  /orders/:UserID:
+ *    get:
+ *      summary: Gets all orders by UserID without populated cart
+ *      tags: [Orders]
+ *      responses:
+ *        "200":
+ *          description: An array of orders by UserID without populated cart
+ *          content:
+ *            application/json:
+ *              schema:
+ *                $ref: '#/components/schemas/Order'
+ *
+ */
+router.get('/:userID', OrdersController.orders_get_all_by_user);
+
 /**
  * @swagger
  * path:

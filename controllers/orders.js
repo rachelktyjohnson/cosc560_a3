@@ -17,6 +17,23 @@ exports.orders_get_all = async(req,res)=>{
     }
 }
 
+exports.orders_get_all_by_user = async(req,res)=>{
+    const userID = req.params.userID;
+    try {
+        const orders = await Order.find({user:userID});
+        res.status(200);
+        res.json({
+            message: "GET all orders by User ID",
+            count: orders.length,
+            data: orders
+        });
+    } catch (err) {
+        res.status(500).json({
+            error: err.message
+        })
+    }
+}
+
 exports.orders_get_single = async (req, res)=>{
     try {
         const order = await Order.findById(req.params.orderID).populate('cart');
