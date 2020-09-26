@@ -1,4 +1,21 @@
 const Item = require('../models/item');
+
+exports.items_get_all = async (req,res) =>{
+    try {
+        const items = await Item.find().select('_id name description price');
+        res.status(200);
+        res.json({
+            message: "GET all items without images",
+            count: items.length,
+            data: items
+        });
+    } catch (err) {
+        res.status(500).json({
+            error: err.message
+        })
+    }
+}
+
 exports.items_get_single = async (req,res)=>{
     try {
         const item = await Item.findById(req.params.itemID);

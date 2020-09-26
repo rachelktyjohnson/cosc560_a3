@@ -7,6 +7,24 @@ const ItemsController = require('../controllers/items');
 /**
  * @swagger
  * path:
+ *  /items/:
+ *    get:
+ *      summary: Gets all items
+ *      tags: [Items]
+ *      responses:
+ *        "200":
+ *          description: An array of items
+ *          content:
+ *            application/json:
+ *              schema:
+ *                $ref: '#/components/schemas/Item'
+ *
+ */
+router.get('/',ItemsController.items_get_all);
+
+/**
+ * @swagger
+ * path:
  *  /items/:ItemID/:
  *    get:
  *      summary: Gets a single item
