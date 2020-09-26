@@ -2,6 +2,7 @@ const express = require('express');
 const router = express.Router();
 const checkAuthUser = require('../middleware/check-auth-user');
 const checkAuthAdmin = require('../middleware/check-auth-admin');
+const cors = require('cors');
 
 const UserController = require('../controllers/users');
 
@@ -60,7 +61,7 @@ router.post('/signup', UserController.user_signup);
  *                      type: string
  *                      description: token for later auth
  */
-router.post('/login',UserController.user_login);
+router.post('/login', cors(), UserController.user_login);
 
 /**
  * @swagger
@@ -103,6 +104,8 @@ router.get('/', UserController.users_get_all);
  *
  */
 router.get('/:userID', UserController.users_get_single);
+
+router.patch('/:userID', UserController.users_update_single);
 
 
 

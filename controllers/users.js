@@ -31,7 +31,8 @@ exports.user_login = (req,res)=>{
                     )
                     return res.status(200).json({
                         message: "Auth successful",
-                        token: token
+                        token: token,
+                        userID: user._id
                     })
                 } else {
                     res.status(401).json({
@@ -117,6 +118,23 @@ exports.users_get_single = async (req,res)=>{
             message: "GET single user by ID: "+req.params.userID,
             data: user
         });
+    } catch (err) {
+        res.status(500).json({
+            error: err.message
+        })
+    }
+}
+
+exports.users_update_single = async (req,res)=>{
+    const userID = req.params.userID;
+    const props = req.body;
+    try{
+        const user = await User.update({_id: userID}, props);
+        res.status(200);
+        res.json({
+            message: "User updated!",
+            data: user
+        })
     } catch (err) {
         res.status(500).json({
             error: err.message
