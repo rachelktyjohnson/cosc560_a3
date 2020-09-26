@@ -20,6 +20,23 @@ exports.notifications_new = async (req,res)=>{
     }
 }
 
+exports.notifications_get_all_by_user = async(req,res)=>{
+    const userID = req.params.userID;
+    try {
+        const notifications = await Notification.find({userID:userID});
+        res.status(200);
+        res.json({
+            message: "GET all notifications by User ID",
+            count: notifications.length,
+            data: notifications
+        });
+    } catch (err) {
+        res.status(500).json({
+            error: err.message
+        })
+    }
+}
+
 exports.notifications_read = async (req,res)=>{
     try{
         let result = await Notification.findOneAndUpdate(

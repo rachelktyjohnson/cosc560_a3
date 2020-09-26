@@ -44,6 +44,9 @@ router.post('/', NotificationsController.notifications_new);
  */
 router.patch('/:notificationID', NotificationsController.notifications_read);
 
+
+router.get('/byuser/:userID', NotificationsController.notifications_get_all_by_user);
+
 module.exports = router;
 
 /**
