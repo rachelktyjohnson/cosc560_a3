@@ -11,11 +11,7 @@ const orderSchema = new mongoose.Schema({
         default: Date.now
     },
     cart: {
-        item:{
-            type: mongoose.Schema.Types.ObjectId,
-            ref: 'Item',
-            required:true
-        }
+        type: {  },
     },
     status: {
         type: String,
