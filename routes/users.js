@@ -79,6 +79,29 @@ router.post('/login',UserController.user_login);
  */
 router.get('/', UserController.users_get_all);
 
+/**
+ * @swagger
+ * path:
+ *  /users/:UserID/:
+ *    get:
+ *      summary: Gets a single user
+ *      tags: [Users]
+ *      parameters:
+ *        - in: path
+ *          name: UserID
+ *          schema:
+ *            type: number
+ *          required: true
+ *          description: ID of the user
+ *      responses:
+ *        "200":
+ *          description: A user schema
+ *          content:
+ *            application/json:
+ *              schema:
+ *                $ref: '#/components/schemas/User'
+ *
+ */
 router.get('/:userID', UserController.users_get_single);
 
 
