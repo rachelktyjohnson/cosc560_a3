@@ -23,13 +23,13 @@ const OrdersController = require('../controllers/orders');
  *                $ref: '#/components/schemas/Order'
  *
  */
-router.get('/', checkAuthUser, checkAuthAdmin, OrdersController.orders_get_all);
+router.get('/', OrdersController.orders_get_all);
 
 
 /**
  * @swagger
  * path:
- *  /orders/:UserID:
+ *  /orders/byuser/:UserID:
  *    get:
  *      summary: Gets all orders by UserID without populated cart
  *      tags: [Orders]
@@ -42,7 +42,7 @@ router.get('/', checkAuthUser, checkAuthAdmin, OrdersController.orders_get_all);
  *                $ref: '#/components/schemas/Order'
  *
  */
-router.get('/:userID', OrdersController.orders_get_all_by_user);
+router.get('/byuser/:userID', OrdersController.orders_get_all_by_user);
 
 /**
  * @swagger
@@ -96,7 +96,7 @@ router.get('/:userID', OrdersController.orders_get_all_by_user);
  *
  *
  */
-router.get('/:orderID', checkAuthUser, OrdersController.orders_get_single);
+router.get('/:orderID', OrdersController.orders_get_single);
 
 /**
  * @swagger
@@ -119,7 +119,7 @@ router.get('/:orderID', checkAuthUser, OrdersController.orders_get_single);
  *              schema:
  *                $ref: '#/components/schemas/Order'
  */
-router.post('/', checkAuthUser, OrdersController.orders_new);
+router.post('/', OrdersController.orders_new);
 
 /**
  * @swagger
@@ -146,7 +146,7 @@ router.post('/', checkAuthUser, OrdersController.orders_new);
  *              schema:
  *                $ref: '#/components/schemas/Order'
  */
-router.patch('/:orderID', checkAuthUser, checkAuthAdmin, OrdersController.orders_update_single);
+router.patch('/:orderID', OrdersController.orders_update_single);
 
 module.exports = router;
 

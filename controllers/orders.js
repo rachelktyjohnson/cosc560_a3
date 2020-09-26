@@ -36,7 +36,7 @@ exports.orders_get_all_by_user = async(req,res)=>{
 
 exports.orders_get_single = async (req, res)=>{
     try {
-        const order = await Order.findById(req.params.orderID).populate('cart');
+        const order = await Order.findById(req.params.orderID);
         res.status(200);
         res.json({
             message: "GET single order by ID: "+req.params.orderID,
