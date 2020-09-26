@@ -21,7 +21,11 @@ const restaurantSchema = new mongoose.Schema({
         type: mongoose.Schema.Types.ObjectId,
         ref: 'Item',
         required:true
-    }]
+    }],
+    imgSrc: {
+        type: String,
+        required: true
+    },
 })
 
 module.exports = mongoose.model('Restaurant', restaurantSchema);
@@ -53,4 +57,7 @@ module.exports = mongoose.model('Restaurant', restaurantSchema);
  *          menu:
  *            type: Array of Items
  *            description: The menu of the restaurant using Items
+ *          imgSrc:
+ *            type: String
+ *            description: SRC to static file
  */

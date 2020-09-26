@@ -2,7 +2,7 @@ const Restaurant = require('../models/restaurant');
 
 exports.restaurants_get_all = async (req,res)=>{
     try {
-        const restaurants = await Restaurant.find().select('name description ratings stars');
+        const restaurants = await Restaurant.find().select('name description ratings stars imgSrc');
         res.status(200);
         res.json({
             message: "GET all restaurants without menu",
