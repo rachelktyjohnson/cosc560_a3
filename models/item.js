@@ -37,9 +37,9 @@ module.exports = mongoose.model('Item', itemSchema);
  *            type: string
  *            description: longer description of the food item
  *          price:
- *            type: Number
+ *            type: number
  *            description: price of the food item in Number
  *          imgSrc:
- *            type: String
+ *            type: string
  *            description: refers to dist folder asset path
  */
