@@ -5,47 +5,45 @@ const User = require('../models/user');
 
 
 
-exports.user_login = (req,res)=>{
+exports.user_login = async (req,res)=> {
     //see if we got a user
-    User.findOne({email: req.body.email})
-        .exec()
-        .then(user => {
-            if (!user){
+    const user = await User.findOne({email: req.body.email})
+    try {
+        if (!user) {
+            res.status(401).json({
+                message: "Auth failed"
+            })
+        }
+        bcrypt.compare(req.body.password, user.password, (err, result) => {
+            if (err) {
                 res.status(401).json({
                     message: "Auth failed"
                 })
             }
-            bcrypt.compare(req.body.password, user.password, (err,result)=>{
-                if (err){
-                    res.status(401).json({
-                        message: "Auth failed"
-                    })
-                }
-                if (result){
-                    const token = jwt.sign({
-                            email: user.email,
-                            userID: user._id
-                        },
-                        "jwtSecret",
-                        {expiresIn: "1h"},
-                    )
-                    return res.status(200).json({
-                        message: "Auth successful",
-                        token: token,
+            if (result) {
+                const token = jwt.sign({
+                        email: user.email,
                         userID: user._id
-                    })
-                } else {
-                    res.status(401).json({
-                        message: "Auth failed"
-                    })
-                }
-            })
+                    },
+                    "jwtSecret",
+                    {expiresIn: "1h"},
+                )
+                return res.status(200).json({
+                    message: "Auth successful",
+                    token: token,
+                    user:user
+                })
+            } else {
+                res.status(401).json({
+                    message: "Auth failed"
+                })
+            }
         })
-        .catch(err=>{
+    }  catch(err) {
             res.status(500).json({
                 error:err
             })
-        })
+        }
 }
 
 //for testing reasons only. Won't be the actual app.
