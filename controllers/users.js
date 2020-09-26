@@ -4,6 +4,7 @@ const jwt = require('jsonwebtoken');
 const User = require('../models/user');
 
 
+
 exports.user_login = (req,res)=>{
     //see if we got a user
     User.findOne({email: req.body.email})
@@ -100,6 +101,21 @@ exports.users_get_all = async (req,res)=>{
             message: "GET all users",
             count: users.length,
             data: users
+        });
+    } catch (err) {
+        res.status(500).json({
+            error: err.message
+        })
+    }
+}
+
+exports.users_get_single = async (req,res)=>{
+    try {
+        const user = await User.findById(req.params.userID);
+        res.status(200);
+        res.json({
+            message: "GET single user by ID: "+req.params.userID,
+            data: user
         });
     } catch (err) {
         res.status(500).json({

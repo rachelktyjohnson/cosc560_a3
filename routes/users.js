@@ -79,6 +79,8 @@ router.post('/login',UserController.user_login);
  */
 router.get('/', UserController.users_get_all);
 
+router.get('/:userID', UserController.users_get_single);
+
 
 
 module.exports = router;
