@@ -30,9 +30,9 @@ router.post('/', NotificationsController.notifications_new);
 /**
  * @swagger
  * path:
- *  /notifications/:NotificationID:
+ *  /notifications/read/:userID:
  *    patch:
- *      summary: Update a notification to READ
+ *      summary: READ all notifications assigned to userID
  *      tags: [Notifications]
  *      responses:
  *        "200":
@@ -42,7 +42,7 @@ router.post('/', NotificationsController.notifications_new);
  *              schema:
  *                $ref: '#/components/schemas/Notification'
  */
-router.patch('/:notificationID', NotificationsController.notifications_read);
+router.patch('/read/:userID', NotificationsController.notifications_read);
 
 
 router.get('/byuser/:userID', NotificationsController.notifications_get_all_by_user);

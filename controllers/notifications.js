@@ -38,11 +38,12 @@ exports.notifications_get_all_by_user = async(req,res)=>{
 }
 
 exports.notifications_read = async (req,res)=>{
+
     try{
-        let result = await Notification.findOneAndUpdate(
-            {_id:req.params.notificationID},
-            {read:true},
-            {new:true})
+        let result = await Notification.updateMany(
+            {userID:req.params.userID, read: false},
+            {$set:{read:true}}
+        )
         res.status(200).json({
             message: "Notification read",
             data: result
