@@ -69,16 +69,10 @@ exports.orders_new =  async (req, res)=>{
 }
 
 exports.orders_update_single = async (req,res)=>{
-    const statuses = ["processing", "received", "delivered", "cancelled"];
-    if (!statuses.includes(req.body.status)){
-        res.status(404).json({
-            message: "Not a valid status"
-        })
-    }
     try {
         let result = await Order.findOneAndUpdate(
             {_id:req.params.orderID},
-            {status: req.body.status},
+            {status: req.body.status, cart: req.body.cart},
             {new:true}
         )
         res.status(200).json({
