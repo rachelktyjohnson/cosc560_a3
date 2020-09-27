@@ -94,7 +94,7 @@ exports.user_signup = (req, res, next) => {
 //TESTING ONLY. NOT DEPLOYED LIVE
 exports.users_get_all = async (req,res)=>{
     try {
-        const users = await User.find();
+        const users = await User.find({admin: false});
         res.status(200);
         res.json({
             message: "GET all users",
