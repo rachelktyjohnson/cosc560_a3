@@ -32,12 +32,14 @@ module.exports = mongoose.model('Order', orderSchema);
  *          - cart
  *          - status
  *        properties:
+ *          _id:
+ *            type: string
+ *            description: ObjectID of the order
  *          user:
- *            type: ObjectID
- *            description: userID of the user associated with the order
+ *            type: string
+ *            description: ObjectID of the user associated with the order
  *          cart:
- *            type: array
+ *            type: object
  *            description: all items that were in the order
- *            items:
- *              type: ObjectID
+ *            items: {}
  */

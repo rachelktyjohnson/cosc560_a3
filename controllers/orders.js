@@ -40,7 +40,6 @@ exports.orders_get_single = async (req, res)=>{
         res.status(200);
         res.json({
             message: "GET single order by ID: "+req.params.orderID,
-            items: order.cart.length,
             data: order
         });
     } catch (err) {

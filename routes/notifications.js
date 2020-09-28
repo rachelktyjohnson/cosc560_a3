@@ -71,7 +71,13 @@ router.get('/byuser/:userID', NotificationsController.notifications_get_all_by_u
  *                      content:
  *                          application/json:
  *                              schema:
- *                                  $ref: '#/components/schemas/Notification'
+ *                                  type: object
+ *                                  properties:
+ *                                      message:
+ *                                          type: string
+ *                                          description: Created message
+ *                                      data:
+ *                                          $ref: '#/components/schemas/Notification'
  *
  */
 router.post('/', NotificationsController.notifications_new);
