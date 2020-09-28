@@ -21,7 +21,7 @@ const NotificationsController = require('../controllers/notifications');
  *                - in: path
  *                  name: UserID
  *                  schema:
- *                      type: number
+ *                      type: string
  *                  required: true
  *                  description: ID of the user
  *              responses:
@@ -39,9 +39,12 @@ const NotificationsController = require('../controllers/notifications');
  *                                          type: number
  *                                          description: count of all notifications returned
  *                                      data:
- *                                          $ref: '#/components/schemas/Notification'
+ *                                          type: array
+ *                                          items:
+ *                                              $ref: '#/components/schemas/Notification'
  */
 router.get('/byuser/:userID', NotificationsController.notifications_get_all_by_user);
+
 /**
  * @swagger
  * path:
@@ -57,7 +60,7 @@ router.get('/byuser/:userID', NotificationsController.notifications_get_all_by_u
  *                              type: object
  *                              properties:
  *                                  userID:
- *                                      type: number
+ *                                      type: string
  *                                      description: ObjectID of the user the notification is going to
  *                                  content:
  *                                      type: string

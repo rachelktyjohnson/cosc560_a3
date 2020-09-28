@@ -39,9 +39,9 @@ module.exports = mongoose.model('User', userSchema);
  *          - address
  *          - admin
  *        properties:
- *                  id:
- *                      type: ObjectId
- *                      description: Mongoose objectID
+ *                  _id:
+ *                      type: string
+ *                      description: ObjectID of the user
  *                  email:
  *                      type: string
  *                      description: email/username of user

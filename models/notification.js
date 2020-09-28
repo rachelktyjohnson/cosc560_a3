@@ -32,7 +32,7 @@ module.exports = mongoose.model('Notification', notificationSchema);
  *          - content
  *        properties:
  *          _id:
- *              type: number
+ *              type: string
  *              description: ObjectID of the item
  *          user:
  *            type: number

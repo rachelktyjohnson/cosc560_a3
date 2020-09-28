@@ -42,6 +42,9 @@ module.exports = mongoose.model('Restaurant', restaurantSchema);
  *          - stars
  *          - menu
  *        properties:
+ *          _id:
+ *              type: string
+ *              description: ObjectID of the restaurant
  *          name:
  *            type: string
  *            description: Name of the restaurant

@@ -32,7 +32,9 @@ const ItemsController = require('../controllers/items');
  *                                          type: number
  *                                          description: number of items returned
  *                                      data:
- *                                          $ref: '#/components/schemas/Item'
+ *                                          type: array
+ *                                          items:
+ *                                              $ref: '#/components/schemas/Item'
  *
  */
 router.get('/', ItemsController.items_get_all);
@@ -48,7 +50,7 @@ router.get('/', ItemsController.items_get_all);
  *                - in: path
  *                  name: ItemID
  *                  schema:
- *                      type: number
+ *                      type: string
  *                  required: true
  *                  description: ID of the item
  *              responses:

@@ -31,7 +31,9 @@ const RestaurantsController = require('../controllers/restaurants');
  *                                          type: number
  *                                          description: number of items returned
  *                                      data:
- *                                          $ref: '#/components/schemas/Restaurant'
+ *                                          type: array
+ *                                          items:
+ *                                              $ref: '#/components/schemas/Restaurant'
  *
  */
 router.get('/', RestaurantsController.restaurants_get_all);
@@ -47,7 +49,7 @@ router.get('/', RestaurantsController.restaurants_get_all);
  *                - in: path
  *                  name: RestaurantID
  *                  schema:
- *                      type: number
+ *                      type: string
  *                  required: true
  *                  description: ID of the restaurant
  *              responses:

@@ -3,7 +3,37 @@ const bcrypt = require('bcrypt');
 const jwt = require('jsonwebtoken');
 const User = require('../models/user');
 
+//TESTING ONLY. NOT DEPLOYED LIVE
+exports.users_get_all = async (req,res)=>{
+    try {
+        const users = await User.find({admin: false});
+        res.status(200);
+        res.json({
+            message: "GET all users",
+            count: users.length,
+            data: users
+        });
+    } catch (err) {
+        res.status(500).json({
+            error: err.message
+        })
+    }
+}
 
+exports.users_get_single = async (req,res)=>{
+    try {
+        const user = await User.findById(req.params.userID);
+        res.status(200);
+        res.json({
+            message: "GET single user by ID: "+req.params.userID,
+            data: user
+        });
+    } catch (err) {
+        res.status(500).json({
+            error: err.message
+        })
+    }
+}
 
 exports.user_login = async (req,res)=> {
     //see if we got a user
@@ -91,37 +121,7 @@ exports.user_signup = (req, res, next) => {
 
 }
 
-//TESTING ONLY. NOT DEPLOYED LIVE
-exports.users_get_all = async (req,res)=>{
-    try {
-        const users = await User.find({admin: false});
-        res.status(200);
-        res.json({
-            message: "GET all users",
-            count: users.length,
-            data: users
-        });
-    } catch (err) {
-        res.status(500).json({
-            error: err.message
-        })
-    }
-}
 
-exports.users_get_single = async (req,res)=>{
-    try {
-        const user = await User.findById(req.params.userID);
-        res.status(200);
-        res.json({
-            message: "GET single user by ID: "+req.params.userID,
-            data: user
-        });
-    } catch (err) {
-        res.status(500).json({
-            error: err.message
-        })
-    }
-}
 
 exports.users_update_single = async (req,res)=>{
     const userID = req.params.userID;

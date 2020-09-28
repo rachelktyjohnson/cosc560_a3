@@ -28,7 +28,7 @@ module.exports = mongoose.model('Item', itemSchema);
  *          - price
  *        properties:
  *          _id:
- *            type: number
+ *            type: string
  *            description: ObjectID of item
  *          name:
  *            type: string
