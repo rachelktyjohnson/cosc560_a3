@@ -10,8 +10,6 @@ const ItemsController = require('../controllers/items');
  *   description: Item management
  */
 
-
-
 /**
  * @swagger
  * path:

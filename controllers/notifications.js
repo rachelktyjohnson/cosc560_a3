@@ -1,6 +1,6 @@
-
 const Notification = require('../models/notification');
 
+//router.post('/', NotificationsController.notifications_new);
 exports.notifications_new = async (req,res)=>{
     const notification = new Notification({
         userID: req.body.userID,
@@ -20,6 +20,25 @@ exports.notifications_new = async (req,res)=>{
     }
 }
 
+//router.patch('/read/:userID', NotificationsController.notifications_read);
+exports.notifications_read = async (req,res)=>{
+    try{
+        let result = await Notification.updateMany(
+            {userID:req.params.userID, read: false},
+            {$set:{read:true}}
+        )
+        res.status(200).json({
+            message: "Notifications read",
+            data: result
+        })
+    }  catch (err) {
+        res.status(400).json({
+            error: err.message
+        })
+    }
+}
+
+//router.get('/byuser/:userID', NotificationsController.notifications_get_all_by_user);
 exports.notifications_get_all_by_user = async(req,res)=>{
     const userID = req.params.userID;
     try {
@@ -35,23 +54,4 @@ exports.notifications_get_all_by_user = async(req,res)=>{
             error: err.message
         })
     }
-}
-
-exports.notifications_read = async (req,res)=>{
-
-    try{
-        let result = await Notification.updateMany(
-            {userID:req.params.userID, read: false},
-            {$set:{read:true}}
-        )
-        res.status(200).json({
-            message: "Notification read",
-            data: result
-        })
-    }  catch (err) {
-        res.status(400).json({
-            error: err.message
-        })
-    }
-
 }

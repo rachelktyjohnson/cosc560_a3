@@ -31,9 +31,12 @@ module.exports = mongoose.model('Notification', notificationSchema);
  *          - user
  *          - content
  *        properties:
+ *          _id:
+ *              type: number
+ *              description: ObjectID of the item
  *          user:
- *            type: ObjectID
- *            description: UserID that notification is for
+ *            type: number
+ *            description: ObjectID of the user the notification is for
  *          content:
  *            type: string
  *            description: what the notification actually says

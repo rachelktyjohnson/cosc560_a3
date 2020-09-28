@@ -27,9 +27,9 @@ module.exports = mongoose.model('Item', itemSchema);
  *          - description
  *          - price
  *        properties:
- *          id:
- *            type: ObjectID
- *            description: ID of item
+ *          _id:
+ *            type: number
+ *            description: ObjectID of item
  *          name:
  *            type: string
  *            description: Name of the food item
