@@ -46,7 +46,7 @@ module.exports = mongoose.model('Restaurant', restaurantSchema);
  *            type: string
  *            description: Name of the restaurant
  *          description:
- *            type: string of arrays
+ *            type: string
  *            description: Description of the restaurant's cuisine
  *          ratings:
  *            type: number
@@ -58,8 +58,8 @@ module.exports = mongoose.model('Restaurant', restaurantSchema);
  *            type: array
  *            description: The menu of the restaurant using Items
  *            items:
- *              type: ObjectID
- *              description: Item IDs
+ *              type: number
+ *              description: ObjectID of itemID
  *          imgSrc:
  *            type: string
  *            description: SRC to static file

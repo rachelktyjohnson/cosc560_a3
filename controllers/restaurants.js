@@ -1,5 +1,6 @@
 const Restaurant = require('../models/restaurant');
 
+//router.get('/', RestaurantsController.restaurants_get_all);
 exports.restaurants_get_all = async (req,res)=>{
     try {
         const restaurants = await Restaurant.find().select('name description ratings stars imgSrc');
@@ -16,6 +17,7 @@ exports.restaurants_get_all = async (req,res)=>{
     }
 }
 
+//router.get('/:restaurantID', RestaurantsController.restaurants_get_single);
 exports.restaurants_get_single = async (req,res)=>{
     try {
         const restaurant = await Restaurant.findById(req.params.restaurantID).populate('menu');
@@ -31,7 +33,8 @@ exports.restaurants_get_single = async (req,res)=>{
     }
 }
 
-//for dev only. Not in final
+//for dev only. Not in final yet
+//router.post('/',RestaurantsController.restaurant_new);
 exports.restaurant_new = async (req,res)=>{
     const restaurant = new Restaurant({
         name: req.body.name,
