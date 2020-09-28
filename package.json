@@ -18,5 +18,8 @@
     "nodemon": "^2.0.4",
     "swagger-jsdoc": "^4.0.0",
     "swagger-ui-express": "^4.1.4"
+  },
+  "devDependencies": {
+    "prettier": "^2.1.2"
   }
 }

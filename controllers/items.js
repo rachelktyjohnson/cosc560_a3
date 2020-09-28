@@ -1,6 +1,7 @@
 const Item = require('../models/item');
 
-exports.items_get_all = async (req,res) =>{
+//router.get('/', ItemsController.items_get_all);
+exports.items_get_all = async (req, res) => {
     try {
         const items = await Item.find().select('_id name description price');
         res.status(200);
@@ -16,12 +17,13 @@ exports.items_get_all = async (req,res) =>{
     }
 }
 
-exports.items_get_single = async (req,res)=>{
+//router.get('/:itemID', ItemsController.items_get_single);
+exports.items_get_single = async (req, res) => {
     try {
         const item = await Item.findById(req.params.itemID);
         res.status(200);
         res.json({
-            message: "GET single item by ID: "+req.params.itemID,
+            message: "GET single item by ID: " + req.params.itemID,
             data: item
         });
     } catch (err) {
@@ -31,11 +33,12 @@ exports.items_get_single = async (req,res)=>{
     }
 }
 
-exports.items_new = async (req,res)=>{
+exports.items_new = async (req, res) => {
     const item = new Item({
         name: req.body.name,
         description: req.body.description,
-        price: req.body.price
+        price: req.body.price,
+        imgSrc: req.body.imgSrc
     })
     try {
         const newItem = await item.save();
