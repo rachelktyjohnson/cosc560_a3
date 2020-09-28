@@ -33,6 +33,7 @@ exports.items_get_single = async (req, res) => {
     }
 }
 
+//router.post('/', ItemsController.items_new);
 exports.items_new = async (req, res) => {
     const item = new Item({
         name: req.body.name,

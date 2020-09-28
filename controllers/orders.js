@@ -1,6 +1,7 @@
 const Order = require('../models/order');
 
 
+//router.get('/', OrdersController.orders_get_all);
 exports.orders_get_all = async(req,res)=>{
     try {
         const orders = await Order.find();
@@ -17,6 +18,7 @@ exports.orders_get_all = async(req,res)=>{
     }
 }
 
+//router.get('/byuser/:userID', OrdersController.orders_get_all_by_user);
 exports.orders_get_all_by_user = async(req,res)=>{
     const userID = req.params.userID;
     try {
@@ -34,6 +36,7 @@ exports.orders_get_all_by_user = async(req,res)=>{
     }
 }
 
+//router.get('/:orderID', OrdersController.orders_get_single);
 exports.orders_get_single = async (req, res)=>{
     try {
         const order = await Order.findById(req.params.orderID);
@@ -49,6 +52,7 @@ exports.orders_get_single = async (req, res)=>{
     }
 }
 
+//router.post('/', OrdersController.orders_new);
 exports.orders_new =  async (req, res)=>{
     const order = new Order({
         user: req.body.user,
@@ -67,6 +71,7 @@ exports.orders_new =  async (req, res)=>{
     }
 }
 
+//router.patch('/:orderID', OrdersController.orders_update_single);
 exports.orders_update_single = async (req,res)=>{
     try {
         let result = await Order.findOneAndUpdate(

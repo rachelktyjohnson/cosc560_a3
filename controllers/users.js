@@ -3,7 +3,9 @@ const bcrypt = require('bcrypt');
 const jwt = require('jsonwebtoken');
 const User = require('../models/user');
 
-//TESTING ONLY. NOT DEPLOYED LIVE
+
+//TESTING ONLY. NOT DEPLOYED
+//router.get('/', UserController.users_get_all);
 exports.users_get_all = async (req,res)=>{
     try {
         const users = await User.find({admin: false});
@@ -20,6 +22,7 @@ exports.users_get_all = async (req,res)=>{
     }
 }
 
+//router.get('/:userID', UserController.users_get_single);
 exports.users_get_single = async (req,res)=>{
     try {
         const user = await User.findById(req.params.userID);
@@ -35,6 +38,7 @@ exports.users_get_single = async (req,res)=>{
     }
 }
 
+//router.post('/login',  UserController.user_login);
 exports.user_login = async (req,res)=> {
     //see if we got a user
     const user = await User.findOne({email: req.body.email})
@@ -77,6 +81,7 @@ exports.user_login = async (req,res)=> {
 }
 
 //for testing reasons only. Won't be the actual app.
+//router.post('/signup', UserController.user_signup);
 exports.user_signup = (req, res, next) => {
     User.find({email: req.body.email})
         .exec()
@@ -121,8 +126,7 @@ exports.user_signup = (req, res, next) => {
 
 }
 
-
-
+//router.patch('/:userID', UserController.users_update_single);
 exports.users_update_single = async (req,res)=>{
     const userID = req.params.userID;
     const props = req.body;
