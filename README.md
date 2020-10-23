@@ -1,3 +1,5 @@
+This is the server-side code of DropBearEats. Please find the client-side here: https://github.com/rachelktyjohnson/cosc560_a2
+
 # Details
 
 ## MongoDB Details
